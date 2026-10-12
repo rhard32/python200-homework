@@ -297,6 +297,15 @@ def test_mean_values(values, expected):
 # Parameterization is more efficient because it reduces duplicate code.
 # It allows multiple test cases to use the same test logic, making
 # the tests easier to maintain and expand.
+# pytest Question 3 - Test execution results
+# Command: python -m pytest warmup_01.py::test_mean_values -v
+#
+# warmup_01.py::test_mean_values[values0-10] PASSED
+# warmup_01.py::test_mean_values[values1-20] PASSED
+# warmup_01.py::test_mean_values[values2--20] PASSED
+# warmup_01.py::test_mean_values[values3-12.5] PASSED
+#
+# ========================= 4 passed in 0.28s =========================
 
 # pytest Question 4
 

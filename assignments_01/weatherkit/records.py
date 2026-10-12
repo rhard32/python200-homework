@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from urllib import response
 from .schemas import WeatherResponse
 
 # Part 2 - Task 3: Inside the Boundary
