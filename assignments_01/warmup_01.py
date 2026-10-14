@@ -206,6 +206,8 @@ reading4 = Reading(station_id="St004", timestamp="2026-10-10T12:00:10", temperat
 print(reading4.temperature_c)
 print(type(reading4.temperature_c))
 print(type(reading4.humidity))
+# Pydantic accepts "25.5" because it can convert a numeric string to a float.
+# It rejects "very humid" because that string cannot be parsed as a number.
 
 reading_int = Reading(
     station_id="St009",
