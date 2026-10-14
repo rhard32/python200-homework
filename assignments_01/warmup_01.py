@@ -202,9 +202,10 @@ except ValidationError as e:
 #Pydantic Question 2
 
 
-reading4 = Reading(station_id="St004", timestamp="2026-10-10T12:00:10", temperature_c="25.5", humidity=50.0)
+reading4 = Reading(station_id="St004", timestamp="2026-10-10T12:00:10", temperature_c="25.5", humidity=50)
 print(reading4.temperature_c)
 print(type(reading4.temperature_c))
+print(type(reading4.humidity))
 
 reading_int = Reading(
     station_id="St009",
@@ -215,17 +216,19 @@ reading_int = Reading(
 print(type(reading_int.temperature_c))
 
 try:
-    reading5 = Reading(station_id="St005", timestamp="2026-10-10T12:00:20", temperature_c="warm", humidity="50.0")
+    reading5 = Reading(station_id="St005", timestamp="2026-10-10T12:00:20", temperature_c="warm", humidity="very humid")
 
 except ValidationError as e:
     print(e)
-#Pydantic was able to coerce the string "25.0" into a float for reading4
-#Pydantic raised a validation error for reading5 because the string "warm" cannot be converted to a float
+# Pydantic raises two validation errors for reading5:
+# temperature_c="warm" cannot be converted to a float.
+# humidity="very humid" cannot be converted to a float.
+# Both errors demonstrate Pydantic's validation of numeric fields.
 
 # Pydantic Question 3
 
 try:
-    reading6 = Reading(station_id="St", temperature_c=25.0, humidity=50.0)
+    reading6 = Reading(station_id="St", temperature_c="warm", humidity=50.0)
 except ValidationError as e:
     for error in e.errors():
         print(error["loc"][0], error["msg"])
