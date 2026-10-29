@@ -195,8 +195,17 @@ for feature, coefficient in zip(numeric, coefficients):
 # Positive coefficients push predictions toward "good" (class 1).
 # The most negative coefficients indicate the strongest influence
 # toward "skip" for a one-standard-deviation feature increase.
-# After running the model, identify which features have the
-# strongest negative coefficients and compare them with intuition.
+
+# Wind speed has the strongest negative coefficient (-2.4438),
+# followed by precipitation (-1.8891). Both features push the
+# model toward predicting "skip" as their values increase.
+# This matches my intuition because strong winds and heavier
+# precipitation make outdoor running less suitable.
+# Maximum temperature also has a small negative coefficient
+# (-0.1212), while minimum temperature has a positive
+# coefficient (0.2563).
+
+
 
 
 # Q3: Predict probabilities for the first five test days
@@ -249,7 +258,16 @@ print("Confusion matrix saved to outputs/logreg_confusion_matrix.png")
 # False negatives classify a good running day as bad.
 # For a running app, false positives are generally more concerning
 # because they could encourage someone to run in unsuitable weather.
-# After execution, record the actual FP and FN counts here.
+
+# The confusion matrix shows 9 false positives and 7 false negatives.
+# The 9 false positives represent unsuitable days incorrectly
+# predicted as good for running. The 7 false negatives represent
+# suitable days incorrectly predicted as skip days.
+# False positives are more concerning because the app could
+# encourage someone to run in unsuitable weather.
+# False negatives could cause missed running opportunities,
+# but they pose less risk than false positives.
+
 
 # --- JOBLIB ---
 
