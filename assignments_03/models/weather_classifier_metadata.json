@@ -1,0 +1,14 @@
+{
+    "python_version": "3.11.4",
+    "sklearn_version": "1.9.1",
+    "feature_names": [
+        "temperature_2m_max",
+        "temperature_2m_min",
+        "precipitation_sum",
+        "wind_speed_10m_max"
+    ],
+    "label_rule": "good_for_running = 1 when temperature_2m_max is between 7 and 26 C inclusive, temperature_2m_min >= 0 C, precipitation_sum < 3 mm, and wind_speed_10m_max < 30 km/h; otherwise 0.",
+    "city": "Ypsilanti, Michigan",
+    "test_accuracy": 0.9452054794520548,
+    "test_f1": 0.9130434782608695
+}
